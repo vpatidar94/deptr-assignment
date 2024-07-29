@@ -2,7 +2,6 @@ import { Order } from "@commercetools/platform-sdk";
 
 export function getOrderById(id: string): Order {
     return {
-        type: "Order",
         id: "12397058-06d1-4b10-b195-87310661a123",
         version: 3,
         lastMessageSequenceNumber: 3,
@@ -10,11 +9,9 @@ export function getOrderById(id: string): Order {
         lastModifiedAt: "2022-07-18T13:43:11.227Z",
         lastModifiedBy: {
             clientId: "12327LWWUj_P1FaDHA123",
-            isPlatformClient: false,
         },
         createdBy: {
             clientId: "12327LWWUj_P1FaDHA123",
-            isPlatformClient: false,
         },
         orderNumber: "ONL-129123",
         customerId: "123e95b8-0a51-4359-9f53-582208447123",
@@ -141,7 +138,6 @@ export function getOrderById(id: string): Order {
                 productType: {
                     typeId: "product-type",
                     id: "1234dd67-3eed-4c9d-b746-9780ad48e123",
-                    version: 16,
                 },
                 productSlug: {
                     en: "classic-chino-short",
@@ -256,8 +252,6 @@ export function getOrderById(id: string): Order {
                             "123fddcb-77d1-4edd-864b-a15473106123": {
                                 isOnStock: true,
                                 availableQuantity: 1,
-                                version: 75,
-                                id: "123b9d19-ebfb-490c-90ba-73eae6434123",
                             },
                         },
                     },
@@ -286,28 +280,6 @@ export function getOrderById(id: string): Order {
                     },
                 },
                 quantity: 1,
-                discountedPrice: {
-                    value: {
-                        type: "centPrecision",
-                        currencyCode: "EUR",
-                        centAmount: 1699,
-                        fractionDigits: 2,
-                    },
-                    includedDiscounts: [
-                        {
-                            discount: {
-                                typeId: "cart-discount",
-                                id: "1230fd33-d79e-46ac-959d-cd7dbc113123",
-                            },
-                            discountedAmount: {
-                                type: "centPrecision",
-                                currencyCode: "EUR",
-                                centAmount: 300,
-                                fractionDigits: 2,
-                            },
-                        },
-                    ],
-                },
                 discountedPricePerQuantity: [
                     {
                         quantity: 1,
@@ -397,7 +369,6 @@ export function getOrderById(id: string): Order {
                 productType: {
                     typeId: "product-type",
                     id: "1234dd67-3eed-4c9d-b746-9780ad48e123",
-                    version: 16,
                 },
                 productSlug: {
                     en: "mid-length-classic-chino",
@@ -512,8 +483,6 @@ export function getOrderById(id: string): Order {
                             "123fddcb-77d1-4edd-864b-a15473106123": {
                                 isOnStock: true,
                                 availableQuantity: 44,
-                                version: 335,
-                                id: "12336a51-98d1-46ea-8062-40dc9be6a123",
                             },
                         },
                     },
@@ -542,28 +511,6 @@ export function getOrderById(id: string): Order {
                     },
                 },
                 quantity: 1,
-                discountedPrice: {
-                    value: {
-                        type: "centPrecision",
-                        currencyCode: "EUR",
-                        centAmount: 1614,
-                        fractionDigits: 2,
-                    },
-                    includedDiscounts: [
-                        {
-                            discount: {
-                                typeId: "cart-discount",
-                                id: "1230fd33-d79e-46ac-959d-cd7dbc113123",
-                            },
-                            discountedAmount: {
-                                type: "centPrecision",
-                                currencyCode: "EUR",
-                                centAmount: 285,
-                                fractionDigits: 2,
-                            },
-                        },
-                    ],
-                },
                 discountedPricePerQuantity: [
                     {
                         quantity: 1,
@@ -645,7 +592,6 @@ export function getOrderById(id: string): Order {
             },
         ],
         customLineItems: [],
-        transactionFee: true,
         discountCodes: [
             {
                 discountCode: {
@@ -655,7 +601,6 @@ export function getOrderById(id: string): Order {
                 state: "MatchesCart",
             },
         ],
-        directDiscounts: [],
         cart: {
             typeId: "cart",
             id: "123958d0-2062-4b2f-ad94-ac445abf3123",

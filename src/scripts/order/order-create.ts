@@ -9,21 +9,20 @@ dotenv.config();
 
 console.log(orderCreate(''));
 
-function orderCreate(orderId: string) {
+function orderCreate(orderId: string): Order | null {
     const ctOrder: CtOrder = getOrderById(orderId);
 
     // Transform
     const couponCodes = ctOrder.discountCodes ?? [];
     const coupon = couponCodes[0]?.discountCode?.obj?.code ?? '';
-  
-    const order_lines: OrderLine[] = setOrderLines(ctOrder);
-  
+    
+  const order_lines: OrderLine[] = setOrderLines(ctOrder);
     const state = transformCtOrderStateToOrderState(
       ctOrder.orderState,
       ctOrder.shipmentState,
     );
 
-    if (!ctOrder.taxedPrice?.totalGross.centAmount || !ctOrder.taxedPrice?.totalNet.centAmount) return;
+    if (!ctOrder.taxedPrice?.totalGross.centAmount || !ctOrder.taxedPrice?.totalNet.centAmount) return null;
   
     const amountTotal = transformCentAmountToAmount(
       ctOrder.taxedPrice?.totalGross.centAmount,
@@ -34,7 +33,7 @@ function orderCreate(orderId: string) {
       ctOrder.taxedPrice?.totalNet.fractionDigits,
     );
   
-    const order: Order = {
+    return {
       order_id: ctOrder.id,
       state,
       locale: ctOrder.locale || 'en',
@@ -50,16 +49,14 @@ function orderCreate(orderId: string) {
       order_number: ctOrder.orderNumber,
       discount_order: 0,
       coupon,
-    };
-
-    return order;
+    } as Order;
 }  
 
 export function transformCtOrderStateToOrderState(
     orderState: CtOrderState,
     shipmentState?: ShipmentState,
-  ): OrderState {
-    let owareOrderState: OrderState = 'pending';
+): OrderState {
+  let owareOrderState: OrderState = 'pending';
   
     switch (orderState) {
       case 'Confirmed':
